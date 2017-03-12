@@ -11,7 +11,8 @@ npm start
 ```
 To update dependencies, run `bower update` and then run `gulp copy` to copy the updated dependencies into the `vendor` directory
 
-## Bugs and Issues
+## Issues
+- Delete `src/app/main.ts` if you have one (we now use `src/main.ts` instead)
 
 
 ## Creator
