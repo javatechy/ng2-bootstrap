@@ -43,7 +43,6 @@ export  class  PostsService{
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     let bodySend = JSON.stringify(body);
-    console.log("HTTP Respoonse: => "+this.http.post(this.url,bodySend, headers).map((res)=>res.json()));
     return this.http.post(this.url,bodySend, headers).map(res=>res.json());
   }
 

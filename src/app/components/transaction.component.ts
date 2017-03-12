@@ -14,57 +14,52 @@ import {CustomResponse} from "../model/CustomResponse";
 })
 export class TransactionComponent  {
   name :string;
-  showInitiatePayment :boolean;
-  showManualReversal :boolean;
-  httpService:PostsService;
   transactionForm: FormGroup;
   model: CustomRequest;
-  submittedModel: CustomRequest;
+  showPgTransaction :boolean =false;
+  showPgIntegration :boolean =false;
+  showAgTransaction:boolean =false;
+  showOfTrannsacton:boolean=false;
+  httpService:PostsService;
   submitted: boolean = false;
   showMessage = true;
   message:string;
   customResponse:CustomResponse;
   constructor(private postsService:PostsService,private formBuilder: FormBuilder){
-    this.name = 'Transaction Information';
-    this.showInitiatePayment=true;
-    this.showManualReversal=false;
     this.httpService=postsService;
-    this.message="No Data Found";
   }
   ngOnInit() {
-    this.model = new CustomRequest('1170000202002020');
+    this.name = 'Transaction Information';
+    this.model = new CustomRequest('1170312125242322');
     this.transactionForm = this.formBuilder.group({
       orderNumbers:     [this.model.orderNumbers, Validators.required]
     });
-  }
-  toggleBars(){
-    if(this.showInitiatePayment==true){
-      this.showInitiatePayment=false;
-      this.showManualReversal=true;
-    }else{
-      this.showInitiatePayment=true;
-      this.showManualReversal=false;
-    }
+    this.message="No Data Found";
   }
 
-  hitSystemInitiateReversal(){
-    console.log("String =>"+JSON.stringify(this.model));
-
-  }
   onSubmit({ value, valid }: { value: CustomRequest, valid: boolean }) {
-    this.submitted = true;
-    this.submittedModel = value;
     console.log(JSON.stringify(value));
     this.postsService.postRequest('FETCH_ORDER_INFO',value).subscribe((posts:CustomResponse)=>{
       this.showMessage=true;
       this.customResponse = posts
-      console.log("Status =>"+JSON.stringify(this.customResponse.agTransaction));
-      console.log("createdOn =>"+this.customResponse.agTransaction.created_on);
+      console.log("Status =>"+JSON.stringify(this.customResponse.status));
+      console.log("createdOn =>"+this.customResponse.ofTransaction.created_on);
       console.log("Value sof statts: ",JSON.stringify(this.customResponse));
       if(posts.status=='A500'){
-        this.message  ="Failed To Refund amount. Please check appplication logs"
+        this.message  ="Failed To Refund amount. Please check application logs"
       }
       this.showMessage=true;
+      this.showPgTransaction  =false;
+      this.showPgIntegration  =false;
+      this.showAgTransaction =false;
+      this.showOfTrannsacton =false;
     });
   }
 }
+/*
+
+interface CustomResponse {
+  status :string;
+}
+
+*/
