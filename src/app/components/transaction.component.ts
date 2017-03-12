@@ -40,7 +40,7 @@ export class TransactionComponent  {
   onSubmit({ value, valid }: { value: CustomRequest, valid: boolean }) {
     console.log(JSON.stringify(value));
     this.postsService.postRequest('FETCH_ORDER_INFO',value).subscribe((posts:CustomResponse)=>{
-      this.showMessage=true;
+      this.showPgTransaction = false;
       this.customResponse = posts
       console.log("Status =>"+JSON.stringify(this.customResponse.status));
       console.log("createdOn =>"+this.customResponse.ofTransaction.created_on);
@@ -48,11 +48,11 @@ export class TransactionComponent  {
       if(posts.status=='A500'){
         this.message  ="Failed To Refund amount. Please check application logs"
       }
-      this.showMessage=true;
-      this.showPgTransaction  =false;
-      this.showPgIntegration  =false;
-      this.showAgTransaction =false;
-      this.showOfTrannsacton =false;
+      this.showMessage = true;
+      this.showPgTransaction = true;
+      this.showPgIntegration  = false;
+      this.showAgTransaction = false;
+      this.showOfTrannsacton = false;
     });
   }
 }
