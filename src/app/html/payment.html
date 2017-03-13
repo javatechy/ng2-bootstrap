@@ -32,7 +32,7 @@
             <br *ngIf="showMessage" />
             <br *ngIf="showMessage" />
             <div class="alert alert-danger" *ngIf="showMessage">
-              {{message}} <a  (click)="submitted=false ;" class="alert-link">Go Back</a>.
+              {{message}} <a  (click)="submitted=false ;showMessage=false;" class="alert-link">Go Back</a>.
             </div>
           </div>
           </div>

@@ -3,7 +3,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AppComponent }  from './app.component';
-import { UserComponent }  from './components/user.component';
+import { SampleComponent }  from './components/sample.component';
 import { AboutComponent }  from './components/about.component';
 import { HomeComponent }  from './components/home.component';
 
@@ -16,7 +16,7 @@ import {SysInfoComponent} from "./components/sys.info";
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule,ReactiveFormsModule, HttpModule,routing ],
-  declarations: [ AppComponent,UserComponent,AboutComponent,HomeComponent,PaymentComponent,TransactionComponent,SysInfoComponent ],
+  declarations: [ AppComponent,SampleComponent,AboutComponent,HomeComponent,PaymentComponent,TransactionComponent,SysInfoComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

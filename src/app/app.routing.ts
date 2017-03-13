@@ -3,7 +3,7 @@
  */
 import {ModuleWithProviders} from '@angular/core';
 import {Routes,RouterModule} from '@angular/router';
-import   {UserComponent } from  './components/user.component';
+import   {SampleComponent } from  './components/sample.component';
 import   {AboutComponent } from  './components/about.component';
 import   {HomeComponent } from  './components/home.component';
 import   {PaymentComponent } from  './components/payment.component';
@@ -13,8 +13,11 @@ import   {SysInfoComponent } from  './components/sys.info';
 const  appRoutes: Routes =[
   {
     path:'',
-    component: UserComponent
-  }, {
+    component: SampleComponent
+  },{
+    path:'sample',
+    component: SampleComponent
+  },{
     path: 'about',
     component: AboutComponent
   }, {

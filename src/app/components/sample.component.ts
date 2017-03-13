@@ -6,10 +6,10 @@ import {PostsService}  from '../services/posts.service';
   moduleId :module.id,
   selector: 'user',
   // refers to index.html file
-  templateUrl:'../html/user.html',
+  templateUrl:'../html/sample.html',
   providers: [PostsService]
 })
-export class UserComponent  {
+export class SampleComponent  {
   name :string;
   email :string;
   address :address;
