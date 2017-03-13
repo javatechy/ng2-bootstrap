@@ -1,0 +1,53 @@
+<h1 class="page-header">{{name}}</h1>
+
+<div class="col-lg-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      {{name}}
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" aria-expanded="true">Operator Balance
+          <button class="btn btn-info" type="button" (click)="getBalance()">
+            <i class="fa fa-refresh"></i>
+          </button></a>
+        </li>
+        <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false">Optional2</a>
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+       <!-- <div class="tab-pane fade active in" id="home">-->
+
+          <div *ngIf="showResult">
+            <p> IND01 Balance: {{ response.operatorBalance.IND01 }}</p>
+            <p> GLO : {{ response.operatorBalance.GLO }}</p>
+            <p> MTN :  {{ response.operatorBalance.MTN }}</p>
+          </div>
+        <div class="alert alert-danger" *ngIf="showError">
+          Failed to Fetch Balance. Click to Refresh <button class="btn btn-danger" type="button" (click)="getBalance()">
+          <i class="fa fa-refresh"></i> </button>
+        </div>
+
+          <div  *ngIf="showResult" >
+            <h3>Please Verify the following:(Verify)</h3>
+            <div class="row">
+              <div class="col-md-2">IND01 Balance </div>
+              <div class="col-md-10 pull-left">{{ response.operatorBalance.IND01 }}</div>
+            </div>
+          </div>
+          <hr />
+          <div class="alert alert-danger" *ngIf="showError">
+              {{message}} <a  (click)="submitted=false ;" class="alert-link">Go Back</a>.
+          </div>
+        </div>
+        <div class="tab-pane fade" id="profile">
+          <h4>Not Implemented Tab</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+    </div>
+</div>

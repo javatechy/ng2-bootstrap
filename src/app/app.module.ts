@@ -12,10 +12,11 @@ import {routing} from './app.routing'
 import { HttpModule }  from '@angular/http';
 import {PaymentComponent} from "./components/payment.component";
 import {TransactionComponent} from "./components/transaction.component";
+import {SysInfoComponent} from "./components/sys.info";
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule,ReactiveFormsModule, HttpModule,routing ],
-  declarations: [ AppComponent,UserComponent,AboutComponent,HomeComponent,PaymentComponent,TransactionComponent ],
+  declarations: [ AppComponent,UserComponent,AboutComponent,HomeComponent,PaymentComponent,TransactionComponent,SysInfoComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

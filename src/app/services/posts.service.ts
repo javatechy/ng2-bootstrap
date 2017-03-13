@@ -27,7 +27,7 @@ export  class  PostsService{
    * @param serviceName service Name
    * @returns {Observable<R>}
    */
-  getRequest(serviceName:string){
+  getRequest(serviceName:string):Observable<CustomResponse>{
     this.url =  this.makeUrl(serviceName);
     return this.http.get(this.url).map(res=>res.json());
   }
@@ -62,6 +62,8 @@ export  class  PostsService{
          return this.baseUrl+'/zauto/operation/payback';
       case 'FETCH_ORDER_INFO':
         return this.baseUrl+'/zauto/info/order';
+      case 'FIND_OP_BALANCE':
+        return this.baseUrl+'/zauto/cron/opbalance';
 
     }
   }

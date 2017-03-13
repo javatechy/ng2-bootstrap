@@ -8,6 +8,7 @@ import   {AboutComponent } from  './components/about.component';
 import   {HomeComponent } from  './components/home.component';
 import   {PaymentComponent } from  './components/payment.component';
 import   {TransactionComponent } from  './components/transaction.component';
+import   {SysInfoComponent } from  './components/sys.info';
 
 const  appRoutes: Routes =[
   {
@@ -25,6 +26,9 @@ const  appRoutes: Routes =[
   },{
     path: 'transaction',
     component: TransactionComponent
+  },{
+    path: 'sysinfo',
+    component: SysInfoComponent
   }
 ]
 

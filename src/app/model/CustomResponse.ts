@@ -5,7 +5,7 @@ export class CustomResponse {
   constructor(  public status?:string,public pgTransaction?:PgTransaction,
               public  paymentIntegration ?:PaymentIntegration[],
               public agTransaction?:AgTransaction,
-              public ofTransaction?:OfTransaction){
+              public ofTransaction?:OfTransaction,public operatorBalance?:OperatorBalance){
   }
 }
 
@@ -24,6 +24,12 @@ export interface PgTransaction{
   created_on ?:string;
   res_status?: string;
   transaction_type?: string;
+}
+
+export interface OperatorBalance{
+  MERCHANT_BALANCE ?: string;
+  IND01 ?: string;
+  MTN ?:string;
 }
 
 

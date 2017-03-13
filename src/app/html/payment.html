@@ -8,7 +8,7 @@
           <a data-toggle="false" data-parent="#accordion" (click)="toggleBars()">Initiate  Reversal</a>
         </h4>
       </div>
-      <div id="collapseOne" class="panel-collapse collapse in"  *ngIf="showInitiatePayment">
+      <div id="collapseOne" class="panel-collapse collapse in"  *ngIf="showResult">
         <div class="panel-body">
           <!--Payment Form Added-->
           <div *ngIf="!submitted">
@@ -29,7 +29,7 @@
             </div>
             <br />
             <button class="btn btn-default" (click)="hitSystemInitiateReversal()">Proceed</button> <a  (click)="submitted=false" class="alert-link">Go Back</a>.
-            <div class="alert alert-success" *ngIf="showMessage">
+            <div class="alert alert-danger" *ngIf="showMessage">
               {{message}} <a  (click)="submitted=false ;" class="alert-link">Go Back</a>.
             </div>
           </div>

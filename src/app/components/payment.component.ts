@@ -28,7 +28,7 @@ export class PaymentComponent  {
     this.showInitiatePayment=true;
     this.showManualReversal=false;
     this.httpService=postsService;
-
+    this.showMessage=false;
     this.message="Refund is Successful";
   }
   ngOnInit() {
