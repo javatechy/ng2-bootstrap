@@ -19,32 +19,36 @@ export interface CustomResponse {
 }
 */
 
-interface PgTransaction{
-  payment_type:string;
-  created_on :string;
-  res_status: string;
-  transaction_type: string;
+export interface PgTransaction{
+  payment_type?:string;
+  created_on ?:string;
+  res_status?: string;
+  transaction_type?: string;
 }
 
 
-interface PaymentIntegration{
-  payment_type:string;
-  created_on :string;
-  res_status: string;
-  transaction_type: string;
+export interface PaymentIntegration{
+  payment_type?:string;
+  created_on ?:string;
+  res_status?: string;
+  transaction_type?: string;
 }
 
 
-interface AgTransaction{
-  payment_type:string;
-  created_on :string;
-  res_status: string;
-  transaction_type: string;
+export interface AgTransaction{
+  payment_type?:string;
+  created_on ?:string;
+  res_status?: string;
+  transaction_type?: string;
+  status ?:string;
 }
 
-interface OfTransaction{
-  payment_type:string;
-  created_on :string;
-  res_status: string;
-  transaction_type: string;
+export interface OfTransaction{
+  txn_status?:string;
+  created_on ?:string;
+  res_status?: string;
+  transaction_type?: string;
+  txn_id?:string;
+  error_message?:string;
+  coupon_code?:string;
 }

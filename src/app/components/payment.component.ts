@@ -28,6 +28,7 @@ export class PaymentComponent  {
     this.showInitiatePayment=true;
     this.showManualReversal=false;
     this.httpService=postsService;
+
     this.message="Refund is Successful";
   }
   ngOnInit() {
@@ -52,7 +53,7 @@ export class PaymentComponent  {
       this.showMessage=true;
       console.log(posts);
       if(posts.status=='A500'){
-        this.message  ="Failed To Refund amount. Please check appplication logs"
+        this.message  ="Failed To Refund amount. Please check application logs(Db Connection Problem)"
       }
       this.showMessage=true;
     });

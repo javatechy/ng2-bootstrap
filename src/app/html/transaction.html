@@ -18,17 +18,28 @@
       <div id="collapseOne" class="panel-collapse collapse in"  *ngIf="showPgTransaction">
         <div class="panel-body">
           <div class="row show-grid">
-            <div class="col-md-3 text-info">Status(Overall) : <b>{{ customResponse.pgTransaction.status }}</b></div>
-            <div class="col-md-3 text-info">Status(Wallet) : <b> {{ customResponse.pgTransaction.wallet_status }}</b></div>
-            <div class="col-md-3 text-info">Status(TPP) : <b>{{ customResponse.pgTransaction.tpp_status }} </b></div>
-            <div class="col-md-3 text-info">Status(SC) : <b>{{ customResponse.pgTransaction.sc_status }} </b></div>
+            <div class="col-md-3 ">Status(Overall) : <b>{{ customResponse.pgTransaction.status }}</b></div>
+            <div class="col-md-3 ">Status(Wallet) : <b> {{ customResponse.pgTransaction.wallet_status }}</b></div>
+            <div class="col-md-3 ">Status(TPP) : <b>{{ customResponse.pgTransaction.tpp_status }} </b></div>
+            <div class="col-md-3 ">Status(SC) : <b>{{ customResponse.pgTransaction.sc_status }} </b></div>
           </div>
           <br/>
           <div class="row show-grid">
-            <div class="col-md-3 text-info">Total Amount :<b> {{ customResponse.pgTransaction.total_amount }}</b></div>
-            <div class="col-md-3">Wallet Amount : <b>{{ customResponse.pgTransaction.wallet_amount }}</b></div>
-            <div class="col-md-3">Service Charge Amount :<b>{{ customResponse.pgTransaction.ser_amount }} </b></div>
-            <div class="col-md-3">Tpp Amount :<b>{{ customResponse.pgTransaction.tpp_amount }} </b></div>
+            <div class="col-md-3 ">Amount(Total) :<b> {{ customResponse.pgTransaction.total_amount }}</b></div>
+            <div class="col-md-3">Amount(Wallet) : <b>{{ customResponse.pgTransaction.wallet_amount }}</b></div>
+            <div class="col-md-3">Amount(SC):<b>{{ customResponse.pgTransaction.ser_amount }} </b></div>
+            <div class="col-md-3">Amount(TPP) :<b>{{ customResponse.pgTransaction.tpp_amount }} </b></div>
+          </div>
+          <br/>
+          <div class="row show-grid">
+            <div class="col-md-3 ">Status(Rollback) :<b> {{ customResponse.pgTransaction.rollback_status }}</b></div>
+            <div class="col-md-3">Status(Refund) : <b>{{ customResponse.pgTransaction.refund_status }}</b></div>
+            <div class="col-md-3">Status(Reversal):<b>{{ customResponse.pgTransaction.reversal_status }} </b></div>
+            <div class="col-md-3">Status(Sc Rollback) :<b>{{ customResponse.pgTransaction.sc_rollback_status }} </b></div>
+          </div>
+          <br/>
+          <div class="row show-grid">
+            <div class="col-md-3 ">Payment Type<b> {{ customResponse.pgTransaction.payment_type }}</b></div>
           </div>
         </div>
       </div>
@@ -44,8 +55,36 @@
       </div>
       <div id="collapseTwo" class="panel-collapse collapse in"  *ngIf="showPgIntegration">
         <div class="panel-body">
-          <!--Payment Form Added-->
-
+        <table width="100%" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
+          <thead>
+          <tr role="row">
+            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending"
+               style="width: 171px;">Transaction Type
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1"
+                style="width: 207px;">Payment Type
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1"
+                style="width: 188px;">Status(Response)
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1"
+                style="width: 148px;">Error Code
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1"
+                style="width: 148px;">Created On
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+          <tr class="gradeA odd" role="row"  *ngFor="let intr  of customResponse.paymentIntegration">
+            <td class="sorting_1"><b>{{ intr.transaction_type }} </b></td>
+            <td class="center">{{ intr.payment_type }}</td>
+            <td class="center"> {{ intr.res_status }}</td>
+            <td class="center"> {{ intr.error_code }}</td>
+            <td class="center">{{ intr.created_on }}</td>
+          </tr>
+          </tbody>
+        </table>
         </div>
       </div>
     </div>
@@ -59,7 +98,19 @@
       </div>
       <div id="collapseThree" class="panel-collapse collapse in"  *ngIf="showAgTransaction">
         <div class="panel-body">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <div class="row show-grid">
+            <div class="col-md-3 ">Status: <b>{{ customResponse.agTransaction.status }}</b></div>
+            <div class="col-md-3 ">Txn Id:<b> {{ customResponse.agTransaction.transaction_id }}</b></div>
+            <div class="col-md-3 ">Order Number <b>{{ customResponse.agTransaction.order_number }} </b></div>
+            <div class="col-md-3 ">Went in Queue? : <b>{{ customResponse.agTransaction.went_in_queue }} </b></div>
+          </div>
+          <br/>
+          <div class="row show-grid">
+            <div class="col-md-3 ">Offer Code : <b>{{ customResponse.agTransaction.offer_code }}</b></div>
+            <div class="col-md-3 ">Platform : <b> {{ customResponse.agTransaction.platform }}</b></div>
+            <div class="col-md-3 ">Service Type : <b>{{ customResponse.agTransaction.service_type }} </b></div>
+            <div class="col-md-3 ">Vendor : <b>{{ customResponse.agTransaction.vendor }} </b></div>
+          </div>
         </div>
       </div>
     </div>
@@ -73,7 +124,16 @@
       </div>
       <div id="collapseFour" class="panel-collapse collapse in"  *ngIf="showOfTransacton">
         <div class="panel-body">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <div class="row show-grid">
+            <div class="col-md-3 ">Status: <b>{{ customResponse.ofTransaction.txn_status }}</b></div>
+            <div class="col-md-3 ">Code : <b> {{ customResponse.ofTransaction.coupon_code }}</b></div>
+            <div class="col-md-3 ">Value : <b>{{ customResponse.ofTransaction.offer_value }} </b></div>
+            <div class="col-md-3 ">Type : <b>{{ customResponse.ofTransaction.type }} </b></div>
+          </div>
+          <br/>
+          <div class="row show-grid">
+            <div class="col-md-3 ">Txn ID : <b>{{ customResponse.ofTransaction.txn_id }}</b></div>
+          </div>
         </div>
       </div>
     </div>

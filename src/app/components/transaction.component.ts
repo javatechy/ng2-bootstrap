@@ -23,13 +23,13 @@ export class TransactionComponent  {
   httpService:PostsService;
   submitted: boolean = false;
   message:string;
-  customResponse:CustomResponse;
+  customResponse:CustomResponse = new CustomResponse();
   constructor(private postsService:PostsService,private formBuilder: FormBuilder){
     this.httpService=postsService;
   }
   ngOnInit() {
     this.name = 'Transaction Information';
-    this.model = new CustomRequest('1170309002956256');
+    this.model = new CustomRequest('1170309113908903');
     this.transactionForm = this.formBuilder.group({
       orderNumbers:     [this.model.orderNumbers, Validators.required]
     });
@@ -42,17 +42,28 @@ export class TransactionComponent  {
       this.showPgIntegration  = false;
       this.showAgTransaction = false;
       this.showOfTransacton = false;
+      this.customResponse =null;
       this.customResponse = posts
       console.log("Status =>"+JSON.stringify(this.customResponse.status));
-      console.log("createdOn =>"+this.customResponse.ofTransaction.created_on);
+      //console.log("createdOn =>"+this.customResponse.ofTransaction.created_on);
       console.log("Value sof statts: ",JSON.stringify(this.customResponse));
       if(posts.status=='A500'){
         this.message  ="Failed To Refund amount. Please check application logs"
       }
+      if(this.customResponse.ofTransaction==null){
+        this.showOfTransacton = false;
+      }else{
+        this.showOfTransacton = true;
+      }
+      if(this.customResponse.agTransaction==null){
+        this.showAgTransaction = false;
+      }else{
+        this.showAgTransaction = true;
+      }
       this.showPgTransaction = true;
       this.showPgIntegration  = true;
-      this.showAgTransaction = true;
-      this.showOfTransacton = true;
+      //this.showAgTransaction = true;
+     // this.showOfTransacton = true;
     });
   }
 }
