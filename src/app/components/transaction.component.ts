@@ -20,6 +20,7 @@ export class TransactionComponent  {
   showPgIntegration :boolean =false;
   showAgTransaction:boolean =false;
   showOfTransacton:boolean=false;
+  showError=false;
   httpService:PostsService;
   submitted: boolean = false;
   message:string;
@@ -37,6 +38,7 @@ export class TransactionComponent  {
 
   onSubmit({ value, valid }: { value: CustomRequest, valid: boolean }) {
     console.log(JSON.stringify(value));
+    this.showError =false;
     this.postsService.postRequest('FETCH_ORDER_INFO',value).subscribe((posts:CustomResponse)=>{
       this.showPgTransaction = false;
       this.showPgIntegration  = false;
@@ -64,7 +66,12 @@ export class TransactionComponent  {
       this.showPgIntegration  = true;
       //this.showAgTransaction = true;
      // this.showOfTransacton = true;
-    });
+    },(err) => {
+        console.log("Error While hittng server");
+        this.message = "Connection Timeout. Tunnel Problem"
+        this.showError=true;
+      }
+    );
   }
 }
 /*

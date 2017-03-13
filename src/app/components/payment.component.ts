@@ -53,8 +53,12 @@ export class PaymentComponent  {
       this.showMessage=true;
       console.log(posts);
       if(posts.status=='A500'){
-        this.message  ="Failed To Refund amount. Please check application logs(Db Connection Problem)"
+        this.message  ="Failed To Refund amount. Please check application logs "
       }
+      this.showMessage=true;
+    },(err) => {
+      console.log("Error While hitting server");
+      this.message = "Connection Timeout. Tunnel Problem"
       this.showMessage=true;
     });
   }

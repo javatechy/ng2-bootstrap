@@ -3,6 +3,10 @@
     <div class="form-group">
       <input type="text" class="form-control" formControlName="orderNumbers"  placeholder="Enter Order Number" />
       <div class="alert alert-danger" [hidden]="transactionForm.controls.orderNumbers.valid">Order Number is required</div>
+      <br  *ngIf="showError"/>
+      <div class="alert alert-danger" *ngIf="showError">
+        {{ message }}
+      </div>
     </div>
     <button type="submit" class="btn btn-outline btn-success"class="btn btn-outline btn-success" [disabled]="!transactionForm.valid">Submit</button>
 </form>
