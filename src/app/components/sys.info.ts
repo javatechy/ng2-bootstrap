@@ -8,7 +8,7 @@ import {CustomResponse} from "../model/CustomResponse";
 // Decorator
 @Component({
   moduleId :module.id,
-  selector: 'payment',
+  selector: 'sysinfo',
   templateUrl:'../html/sysinfo.html',
   providers: [PostsService]
 })

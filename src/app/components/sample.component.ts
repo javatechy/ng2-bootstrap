@@ -4,7 +4,7 @@ import {PostsService}  from '../services/posts.service';
 // Decorator
 @Component({
   moduleId :module.id,
-  selector: 'user',
+  selector: 'sample',
   // refers to index.html file
   templateUrl:'../html/sample.html',
   providers: [PostsService]

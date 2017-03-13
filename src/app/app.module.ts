@@ -13,10 +13,11 @@ import { HttpModule }  from '@angular/http';
 import {PaymentComponent} from "./components/payment.component";
 import {TransactionComponent} from "./components/transaction.component";
 import {SysInfoComponent} from "./components/sys.info";
+import {UserComponent} from "./components/user.component";
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule,ReactiveFormsModule, HttpModule,routing ],
-  declarations: [ AppComponent,SampleComponent,AboutComponent,HomeComponent,PaymentComponent,TransactionComponent,SysInfoComponent ],
+  declarations: [ AppComponent,SampleComponent,AboutComponent,HomeComponent,PaymentComponent,TransactionComponent,SysInfoComponent,UserComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

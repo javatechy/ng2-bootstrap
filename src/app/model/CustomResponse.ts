@@ -2,7 +2,7 @@
  * Created by deepak on 3/11/2017.
  */
 export class CustomResponse {
-  constructor(  public status?:string,public pgTransaction?:PgTransaction,
+  constructor(  public status?:string,public pgTransaction?:PgTransaction,public user?:User,public pgTransactions?:PgTransaction[],
               public  paymentIntegration ?:PaymentIntegration[],
               public agTransaction?:AgTransaction,
               public ofTransaction?:OfTransaction,public operatorBalance?:OperatorBalance){
@@ -26,6 +26,12 @@ export interface PgTransaction{
   transaction_type?: string;
 }
 
+
+export interface User{
+  iu_email_id ?: string;
+  iu_last_name ?: string;
+  created_on ?:string;
+}
 export interface OperatorBalance{
   MERCHANT_BALANCE ?: string;
   IND01 ?: string;

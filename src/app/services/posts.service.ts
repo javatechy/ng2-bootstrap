@@ -14,8 +14,7 @@ export  class  PostsService{
    * @param http
    */
   constructor(private http:Http){
-    //this.baseUrl = 'http://52.209.79.99:8080';
-    this.baseUrl = 'http://localhost:5050';
+    this.baseUrl = 'http://localhost:5051';
     console.log('Post Service Initaislized');
   }
   getPosts(){
@@ -62,6 +61,8 @@ export  class  PostsService{
          return this.baseUrl+'/zauto/operation/payback';
       case 'FETCH_ORDER_INFO':
         return this.baseUrl+'/zauto/info/order';
+      case 'FETCH_USER_INFO':
+        return this.baseUrl+'/zauto/info/user';
       case 'FIND_OP_BALANCE':
         return this.baseUrl+'/zauto/cron/opbalance';
 

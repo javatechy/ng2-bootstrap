@@ -9,6 +9,7 @@ import   {HomeComponent } from  './components/home.component';
 import   {PaymentComponent } from  './components/payment.component';
 import   {TransactionComponent } from  './components/transaction.component';
 import   {SysInfoComponent } from  './components/sys.info';
+import   {UserComponent } from  './components/user.component';
 
 const  appRoutes: Routes =[
   {
@@ -29,6 +30,9 @@ const  appRoutes: Routes =[
   },{
     path: 'transaction',
     component: TransactionComponent
+  },{
+    path: 'user',
+    component: UserComponent
   },{
     path: 'sysinfo',
     component: SysInfoComponent
