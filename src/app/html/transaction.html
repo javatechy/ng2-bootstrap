@@ -18,17 +18,17 @@
       <div id="collapseOne" class="panel-collapse collapse in"  *ngIf="showPgTransaction">
         <div class="panel-body">
           <div class="row show-grid">
-            <div class="col-md-3 text-info"> Status : <b>{{ customResponse.pgTransaction.status }}</b></div>
-            <div class="col-md-3 text-info">Wallet_status : <b> {{ customResponse.pgTransaction.wallet_status }}</b></div>
-            <div class="col-md-3 text-info">Service Charge : <b>{{ customResponse.pgTransaction.sc_status }} </b></div>
-            <div class="col-md-3 text-info">Service Charge : <b>{{ customResponse.pgTransaction.sc_status }} </b></div>
+            <div class="col-md-3 text-info">Status(Overall) : <b>{{ customResponse.pgTransaction.status }}</b></div>
+            <div class="col-md-3 text-info">Status(Wallet) : <b> {{ customResponse.pgTransaction.wallet_status }}</b></div>
+            <div class="col-md-3 text-info">Status(TPP) : <b>{{ customResponse.pgTransaction.tpp_status }} </b></div>
+            <div class="col-md-3 text-info">Status(SC) : <b>{{ customResponse.pgTransaction.sc_status }} </b></div>
           </div>
           <br/>
           <div class="row show-grid">
-            <div class="col-md-3 text-info"> Status : {{ customResponse.pgTransaction.status }}</div>
-            <div class="col-md-3">Wallet_status : {{ customResponse.pgTransaction.wallet_status }}</div>
-            <div class="col-md-3">Service Charge :{{ customResponse.pgTransaction.sc_status }} </div>
-            <div class="col-md-3">Service Charge :{{ customResponse.pgTransaction.sc_status }} </div>
+            <div class="col-md-3 text-info">Total Amount :<b> {{ customResponse.pgTransaction.total_amount }}</b></div>
+            <div class="col-md-3">Wallet Amount : <b>{{ customResponse.pgTransaction.wallet_amount }}</b></div>
+            <div class="col-md-3">Service Charge Amount :<b>{{ customResponse.pgTransaction.ser_amount }} </b></div>
+            <div class="col-md-3">Tpp Amount :<b>{{ customResponse.pgTransaction.tpp_amount }} </b></div>
           </div>
         </div>
       </div>
@@ -68,10 +68,10 @@
     <div class="panel panel-success">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="false" data-parent="#accordion" (click)="showOfTrannsacton=!showOfTrannsacton" >Offer(AGGR)</a>
+          <a data-toggle="false" data-parent="#accordion" (click)="showOfTrannsacton=!showOfTransacton" >Offer(AGGR)</a>
         </h4>
       </div>
-      <div id="collapseFour" class="panel-collapse collapse in"  *ngIf="showOfTrannsacton">
+      <div id="collapseFour" class="panel-collapse collapse in"  *ngIf="showOfTransacton">
         <div class="panel-body">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
