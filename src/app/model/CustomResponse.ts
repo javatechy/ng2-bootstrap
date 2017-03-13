@@ -21,9 +21,12 @@ export interface CustomResponse {
 
 export interface PgTransaction{
   payment_type?:string;
+  status?:string;
+  wallet_status:string;
+  tpp_status:string;
+  sc_status:string;
   created_on ?:string;
-  res_status?: string;
-  transaction_type?: string;
+  total_amount:string;
 }
 
 

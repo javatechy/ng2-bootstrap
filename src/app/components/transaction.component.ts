@@ -49,8 +49,9 @@ export class TransactionComponent  {
       console.log("Status =>"+JSON.stringify(this.customResponse.status));
       //console.log("createdOn =>"+this.customResponse.ofTransaction.created_on);
       console.log("Value sof statts: ",JSON.stringify(this.customResponse));
-      if(posts.status=='A500'){
-        this.message  ="Failed To Refund amount. Please check application logs"
+      if(posts.status=='A200'){
+        this.message  ="No Such Transaction Found."
+        this.showError= true;
       }
       if(this.customResponse.ofTransaction==null){
         this.showOfTransacton = false;
@@ -62,14 +63,24 @@ export class TransactionComponent  {
       }else{
         this.showAgTransaction = true;
       }
-      this.showPgTransaction = true;
-      this.showPgIntegration  = true;
-      //this.showAgTransaction = true;
-     // this.showOfTransacton = true;
+        if(this.customResponse.pgTransaction==null){
+          this.showPgTransaction = false;
+        }else{
+          this.showPgTransaction = true;
+        }
+        if(this.customResponse.paymentIntegration==null){
+          this.showPgIntegration = false;
+        }else{
+          this.showPgIntegration = true;
+        }
     },(err) => {
         console.log("Error While hittng server");
         this.message = "Connection Timeout. Tunnel Problem"
         this.showError=true;
+        this.showPgTransaction = false;
+        this.showPgIntegration  = false;
+        this.showAgTransaction = false;
+        this.showOfTransacton = false;
       }
     );
   }

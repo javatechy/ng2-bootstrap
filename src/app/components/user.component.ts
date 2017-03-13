@@ -44,7 +44,10 @@ export class UserComponent  {
       console.log("Status =>"+JSON.stringify(this.customResponse.status));
       console.log("Value sof statts: ",JSON.stringify(this.customResponse.pgTransactions));
       if(posts.status=='A500'){
-        this.message  ="Failed To Refund amount. Please check application logs"
+        this.message  ="No Data Found"
+        this.showError=true;
+        this.showUserInfo = false;
+        this.showPgTransactions = false;
       }
       if(this.customResponse.pgTransactions==null){
         this.showPgTransactions = false;
@@ -56,8 +59,6 @@ export class UserComponent  {
         }else{
           this.showUserInfo = true;
         }
-      this.showPgTransactions = true;
-      this.showUserInfo  = true;
     },(err) => {
         console.log("Error While hitting server");
         this.message = "Connection Timeout. Tunnel Problem"
