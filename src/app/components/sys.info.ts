@@ -25,7 +25,7 @@ export class SysInfoComponent  {
     this.name = 'System Information';
     this.httpService=postsService;
     this.showMessage=false;
-    this.message="Refund is Successful";
+    this.message="Failed to Fetch Balance. Click to Refresh";
     this.getBalance();
   }
   ngOnInit() {
@@ -36,13 +36,19 @@ export class SysInfoComponent  {
     this.postsService.getRequest('FIND_OP_BALANCE').subscribe(posts=>{
       this.response=posts;
       console.log("Resppnse => "+posts+"\n\ndsadasd"+ JSON.stringify(this.response.operatorBalance));
-      if(this.response.operatorBalance==null){
+      if(this.response == null ||this.response.operatorBalance==null){
         this.showError=true;
         this.showResult=false;
       }else{
         this.showError=false;
         this.showResult=true;
       }
-    });
+    },(err) => {
+        console.log("Eroor Withle hiitng serve");
+        this.message = "Connection Timeout. Tunnel Problem"
+        this.showError=true;
+        this.showResult=false;
+      }
+    );
   }
 }

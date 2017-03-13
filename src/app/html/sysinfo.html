@@ -17,37 +17,57 @@
         <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false">Optional2</a>
         </li>
       </ul>
-
       <!-- Tab panes -->
       <div class="tab-content">
        <!-- <div class="tab-pane fade active in" id="home">-->
-
+        <br/>
           <div *ngIf="showResult">
-            <p> IND01 Balance: {{ response.operatorBalance.IND01 }}</p>
-            <p> GLO : {{ response.operatorBalance.GLO }}</p>
-            <p> MTN :  {{ response.operatorBalance.MTN }}</p>
+            <table width="100%" class="success table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
+              <thead>
+              <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending"
+                    style="width: 171px;">Operator Name
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1"
+                    style="width: 207px;">Balance
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+
+              <tr class="gradeA odd" role="row" >
+                <td class="sorting_1"><b>Merchant Balance </b></td>
+                <td class="center">{{ response.operatorBalance.MERCHANT_BALANCE }}</td>
+              </tr>
+              <tr class="gradeA odd" role="row" >
+                <td class="sorting_1"><b>IND01 Balance </b></td>
+                <td class="center">{{ response.operatorBalance.IND01 }}</td>
+              </tr>
+
+              <tr class="gradeA odd" role="row" >
+                <td class="sorting_1"><b>GLO Balance </b></td>
+                <td class="center">{{ response.operatorBalance.GLO }}</td>
+              </tr>
+              <tr class="gradeA odd" role="row" >
+                <td class="sorting_1"><b>Airtel </b></td>
+                <td class="center">{{ response.operatorBalance.AR }}</td>
+              </tr>
+              <tr class="gradeA odd" role="row" >
+                <td class="sorting_1"><b>ET </b></td>
+                <td class="center">{{ response.operatorBalance.ET }}</td>
+              </tr>
+              </tbody>
+            </table>
           </div>
         <div class="alert alert-danger" *ngIf="showError">
-          Failed to Fetch Balance. Click to Refresh <button class="btn btn-danger" type="button" (click)="getBalance()">
+          {{ message }} <button class="btn btn-danger" type="button" (click)="getBalance()">
           <i class="fa fa-refresh"></i> </button>
         </div>
-
-          <div  *ngIf="showResult" >
-            <h3>Please Verify the following:(Verify)</h3>
-            <div class="row">
-              <div class="col-md-2">IND01 Balance </div>
-              <div class="col-md-10 pull-left">{{ response.operatorBalance.IND01 }}</div>
-            </div>
-          </div>
-          <hr />
-          <div class="alert alert-danger" *ngIf="showError">
-              {{message}} <a  (click)="submitted=false ;" class="alert-link">Go Back</a>.
-          </div>
-        </div>
-        <div class="tab-pane fade" id="profile">
+      </div>
+      <div class="tab-pane fade" id="profile">
           <h4>Not Implemented Tab</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
       </div>
-    </div>
+      </div>
+  </div>
 </div>
