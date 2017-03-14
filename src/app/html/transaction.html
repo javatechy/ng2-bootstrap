@@ -44,6 +44,7 @@
           <br/>
           <div class="row show-grid">
             <div class="col-md-3 ">Payment Type<b> {{ customResponse.pgTransaction.payment_type }}</b></div>
+            <div class="col-md-3 ">Op code<b> {{ customResponse.pgTransaction.opcode }}</b></div>
           </div>
         </div>
       </div>
@@ -72,7 +73,7 @@
                 style="width: 188px;">Status(Response)
             </th>
             <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1"
-                style="width: 148px;">Error Code
+                style="width: 148px;">Error Code/Message
             </th>
             <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1"
                 style="width: 148px;">Created On
@@ -84,7 +85,7 @@
             <td class="sorting_1"><b>{{ intr.transaction_type }} </b></td>
             <td class="center">{{ intr.payment_type }}</td>
             <td class="center"> {{ intr.res_status }}</td>
-            <td class="center"> {{ intr.error_code }}</td>
+            <td class="center"> {{ intr.error_code }} <b>-</b> {{ intr.error_message }}</td>
             <td class="center">{{ intr.created_on }}</td>
           </tr>
           </tbody>

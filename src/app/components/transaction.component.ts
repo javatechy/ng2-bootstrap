@@ -49,7 +49,7 @@ export class TransactionComponent  {
       console.log("Status =>"+JSON.stringify(this.customResponse.status));
       //console.log("createdOn =>"+this.customResponse.ofTransaction.created_on);
       console.log("Value sof statts: ",JSON.stringify(this.customResponse));
-      if(posts.status=='A200'){
+      if(posts.status=='A500'){
         this.message  ="No Such Transaction Found."
         this.showError= true;
       }
@@ -67,6 +67,7 @@ export class TransactionComponent  {
           this.showPgTransaction = false;
         }else{
           this.showPgTransaction = true;
+          this.showError=false;
         }
         if(this.customResponse.paymentIntegration==null){
           this.showPgIntegration = false;
