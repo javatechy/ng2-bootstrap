@@ -65,6 +65,8 @@ export class TransactionComponent  {
       }
         if(this.customResponse.pgTransaction==null){
           this.showPgTransaction = false;
+          this.message  ="No Such Transaction Found."
+          this.showError= true;
         }else{
           this.showPgTransaction = true;
           this.showError=false;
