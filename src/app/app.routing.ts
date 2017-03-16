@@ -14,7 +14,7 @@ import   {UserComponent } from  './components/user.component';
 const  appRoutes: Routes =[
   {
     path:'',
-    component: SampleComponent
+    component: UserComponent
   },{
     path:'sample',
     component: SampleComponent
