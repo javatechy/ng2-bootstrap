@@ -24,7 +24,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@angular/common": "~2.4.0",
+    "@angular/common": "~19.2.16",
     "@angular/compiler": "~2.4.0",
     "@angular/core": "~2.4.0",
     "@angular/forms": "~2.4.0",
